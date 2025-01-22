@@ -1,6 +1,7 @@
 const newtaskbox = document.getElementById("newtaskbox")
-const taskInput = document.getElementById("taskinput");
+const taskInput = document.getElementById("tasklistform");
 const newTaskForm = document.getElementById("newtaskform");
+
 
 
 function addTask(){
@@ -19,8 +20,7 @@ function addTask(){
         return
     }
 
-    /*clean the input bar*/
-    document.getElementById("newtask").value = "";
+    inputBarCleanup();
 
     /*Add the remove button*/
     const removeButton = document.createElement("button");
@@ -34,21 +34,29 @@ function addTask(){
 
     /*return the whole assembled thing to the html*/
     document.getElementById("todolist-list").appendChild(taskList);
+    backToMenu();
 
 }
 
 function newTask(){
         taskInput.style.display = "none"; 
         newTaskForm.style.display = "flex";
+        document.getElementById("todolist-list").style.display = "none";
 }
 
 function backToMenu(){
     taskInput.style.display = "flex"; 
     newTaskForm.style.display = "none";
+    document.getElementById("todolist-list").style.display = "block";
+    inputBarCleanup();
 }
 
 function removeTask(removeButton){  
     removeButton.parentElement.remove();
+}
+
+function inputBarCleanup(){
+    document.getElementById("newtask").value = "";
 }
 
 function lineThrough(event){

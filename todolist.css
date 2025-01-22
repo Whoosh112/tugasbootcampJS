@@ -24,7 +24,7 @@
     border-radius: 3px;
   }
 
-  .taskinput{
+  .tasklistform{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,4 +48,5 @@
 
   .newtaskform{
     display: none;
+    flex-direction: column;
   }
