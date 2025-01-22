@@ -1,3 +1,7 @@
+const newtaskbox = document.getElementById("newtaskbox")
+const taskInput = document.getElementById("taskinput");
+const newTaskForm = document.getElementById("newtaskform");
+
 
 function addTask(){
     /*Add the empty vessel for the task*/
@@ -31,6 +35,16 @@ function addTask(){
     /*return the whole assembled thing to the html*/
     document.getElementById("todolist-list").appendChild(taskList);
 
+}
+
+function newTask(){
+        taskInput.style.display = "none"; 
+        newTaskForm.style.display = "flex";
+}
+
+function backToMenu(){
+    taskInput.style.display = "flex"; 
+    newTaskForm.style.display = "none";
 }
 
 function removeTask(removeButton){  

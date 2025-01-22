@@ -10,15 +10,18 @@
     <h1>Nama: <span class="namapengguna" id="namapengguna">Budi</span></h1>
     <h1>Jabatan: <span class="namajabatan" id="namajabatan">Manager</span></h1>
     <div class="todolist-body">
-      <div class="taskinput">
+      <div class="taskinput" id="taskinput">
         <h1>What to do..?</h1>
         <input type="text" id="newtask" name="newtask" placeholder="Make a note here">
-        <button class="addtask" id="addtask" onclick="addTask()">Confirm Task</button>
+        <button class="newtaskbox" id="newtaskbox" onclick="newTask()">newtaskbox</button>
       </div>
       <ul class="todolist-list" id="todolist-list"></ul>
+      <div class="newtaskform" id="newtaskform">
+        <p>Badda bing badda boom</p>
+        <button class="addtask" id="addtask" onclick="addTask()">Confirm Task</button>
+        <button class="backtomenu" id="backtomenu" onclick="backToMenu()">Back To Menu</button>
+      </div>
     </div>
-
-
     <script src="todolist.js"></script>
   </body>
 </html>
