@@ -8,44 +8,15 @@ function addTask(){
     /*Buat wadah kosong untuk data*/
     const taskList = document.createElement("tr");
 
-    /*Add the remove button*/
-    const centangButton = document.createElement("button");
-    centangButton.innerHTML = "V";
-    centangButton.onclick = () => lineThrough;
-
-    /*Nambah waktu*/
-    const dateConverter = new Intl.DateTimeFormat('id-ID').format(new Date())
-    const taskDateText = document.createElement("td")
-    taskDateText.textContent = dateConverter
-
-    /*Nambah text untuk tugas trigger untuk line through*/
-    const newTaskInput = document.getElementById("newtask").value;
-    const newTaskText = document.createElement("td")
-    newTaskText.textContent = newTaskInput;
-
-    /*Add the text for the task priority and trigger for line through*/
-    const newTaskPriority = document.getElementById("newtaskpriority").value;
-    const newTaskPriorityText = document.createElement("td")
-    newTaskPriorityText.textContent = newTaskPriority;
+    addComfirmButton(taskList)
+    addDate(taskList)    
+    addTaskText(taskList);
+    addTaskPriorityText(taskList)
+    addRemoveButton(taskList)
 
     /*Prevent addition if inputs is empty*/
-    if(newTaskInput === "" || newTaskPriority === "") {
-        alert("Tugas Kosong. Isi Sesuatu.")
-        return
-    }
-
-    /*Add the remove button*/
-    const removeButton = document.createElement("button");
-    removeButton.innerHTML = "\u00D7";
-    removeButton.classList.add("removetask"); 
-    removeButton.onclick = () => removeTask(removeButton);
-
-    /* combine everything into the still empty tr*/
-    taskList.appendChild(taskDateText)
-    taskList.appendChild(newTaskText);
-    taskList.appendChild(newTaskPriorityText);
-    taskList.appendChild(removeButton);
-
+    antiEmptyChecker(taskList)
+  
     /*return the whole assembled thing to the html*/
     document.getElementById("todolist-list").appendChild(taskList);
     backToMenu();
@@ -53,20 +24,22 @@ function addTask(){
 }
 
 function newTask(){
-        taskInput.style.display = "none"; 
-        newTaskForm.style.display = "flex";
-        document.getElementById("todolist-list").style.display = "none";
+    taskInput.style.display = "none"; 
+    newTaskForm.style.display = "flex";
+    document.getElementById("todolist-form").style.display = "none";
+    document.getElementById("todolist-list").style.display = "none";
 }
 
 function backToMenu(){
     taskInput.style.display = "flex"; 
     newTaskForm.style.display = "none";
-    document.getElementById("todolist-list").style.display = "block";
+    document.getElementById("todolist-form").style.display = "table";
+    document.getElementById("todolist-list").style.display = "table-row-group";
     inputBarCleanup();
 }
 
 function removeTask(removeButton){  
-    removeButton.parentElement.remove();
+    removeButton.parentElement.parentElement.remove();
 }
 
 function inputBarCleanup(){
@@ -80,3 +53,49 @@ function lineThrough(event){
         spanElement.classList.toggle("checked");
     }
     }
+
+function addDate(taskList){
+    const dateConverter = new Intl.DateTimeFormat('id-ID').format(new Date())
+    const taskDateText = document.createElement("td")
+    taskDateText.textContent = dateConverter
+    taskList.appendChild(taskDateText)
+}
+
+function addTaskText(taskList){
+    const newTaskInput = document.getElementById("newtask").value;
+    const newTaskText = document.createElement("td")
+    newTaskText.textContent = newTaskInput;
+    taskList.appendChild(newTaskText);
+}
+
+function addTaskPriorityText(taskList){
+    const newTaskPriority = document.getElementById("newtaskpriority").value;
+    const newTaskPriorityText = document.createElement("td")
+    newTaskPriorityText.textContent = newTaskPriority;
+    taskList.appendChild(newTaskPriorityText);
+}
+
+function addRemoveButton(taskList){
+    const removeButtonCell = document.createElement("td");
+    const removeButton = document.createElement("button");
+    removeButton.innerHTML = "\u00D7";
+    removeButton.classList.add("removetask"); 
+    removeButton.onclick = () => removeTask(removeButton);
+    removeButtonCell.appendChild(removeButton); // Add the button inside the cell
+    taskList.appendChild(removeButtonCell); // Append the cell to the row
+}
+function addComfirmButton(taskList){
+    const centangButtonCell = document.createElement("td");
+    const centangButton = document.createElement("button");
+    centangButton.innerHTML = "V";
+    centangButton.onclick = () => lineThrough;
+    centangButtonCell.appendChild(centangButton); 
+    taskList.appendChild(centangButtonCell);
+}
+
+function antiEmptyChecker(taskList){
+    if(taskList.newTaskInput === "" || taskList.newTaskPriority === "") {
+        alert("Tugas Kosong. Isi Sesuatu.")
+        return
+    }
+}
