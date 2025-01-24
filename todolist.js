@@ -5,20 +5,28 @@ const newTaskPriority = document.getElementById("newtaskpriority");
 
 
 function addTask(){
-    /*Add the empty vessel for the task*/
+    /*Buat wadah kosong untuk data*/
     const taskList = document.createElement("tr");
 
-    /*Add the text for the task and trigger for line through*/
+    /*Add the remove button*/
+    const centangButton = document.createElement("button");
+    centangButton.innerHTML = "V";
+    centangButton.onclick = () => lineThrough;
+
+    /*Nambah waktu*/
+    const dateConverter = new Intl.DateTimeFormat('id-ID').format(new Date())
+    const taskDateText = document.createElement("td")
+    taskDateText.textContent = dateConverter
+
+    /*Nambah text untuk tugas trigger untuk line through*/
     const newTaskInput = document.getElementById("newtask").value;
     const newTaskText = document.createElement("td")
     newTaskText.textContent = newTaskInput;
-    taskList.onclick = lineThrough;
 
     /*Add the text for the task priority and trigger for line through*/
     const newTaskPriority = document.getElementById("newtaskpriority").value;
     const newTaskPriorityText = document.createElement("td")
     newTaskPriorityText.textContent = newTaskPriority;
-    taskList.onclick = lineThrough;
 
     /*Prevent addition if inputs is empty*/
     if(newTaskInput === "" || newTaskPriority === "") {
@@ -26,15 +34,14 @@ function addTask(){
         return
     }
 
-    inputBarCleanup();
-
     /*Add the remove button*/
     const removeButton = document.createElement("button");
     removeButton.innerHTML = "\u00D7";
     removeButton.classList.add("removetask"); 
     removeButton.onclick = () => removeTask(removeButton);
 
-    /* combine everything into the still empty li*/
+    /* combine everything into the still empty tr*/
+    taskList.appendChild(taskDateText)
     taskList.appendChild(newTaskText);
     taskList.appendChild(newTaskPriorityText);
     taskList.appendChild(removeButton);
@@ -42,6 +49,7 @@ function addTask(){
     /*return the whole assembled thing to the html*/
     document.getElementById("todolist-list").appendChild(taskList);
     backToMenu();
+    inputBarCleanup();
 }
 
 function newTask(){
@@ -63,6 +71,7 @@ function removeTask(removeButton){
 
 function inputBarCleanup(){
     document.getElementById("newtask").value = "";
+    document.getElementById("newtaskpriority").value ="";
 }
 
 function lineThrough(event){

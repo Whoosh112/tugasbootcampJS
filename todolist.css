@@ -32,17 +32,7 @@
 
   }
 
-  ul{
-    list-style: none;
-  }
-
-  li{
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    }
-
-  ul li span.checked {
+tr > td.checked {
     text-decoration: line-through;
   }
 
