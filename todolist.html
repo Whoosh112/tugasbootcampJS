@@ -14,10 +14,27 @@
         <h1>What to do..?</h1>
         <button class="newtaskbox" id="newtaskbox" onclick="newTask()">newtaskbox</button>
       </div>
+      <table class="todolist-list" id="todolist-list">
+        <tr>
+          <th>Waktu</th>
+          <th>Tugas</th>
+          <th>Level Prioritas</th>
+          <th>Centang</th>
+        </tr>
+        <tr>
+          <td>January</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>February</td>
+          <td>$80</td>
+        </tr>
+      </table>
       <ul class="todolist-list" id="todolist-list"></ul>
       <div class="newtaskform" id="newtaskform">
         <p>Badda bing badda boom</p>
         <input type="text" id="newtask" name="newtask" placeholder="Make a note here">
+        <input type="text" id="newtaskpriority" name="newtaskpriority" placeholder="Your Task Priority">
         <button class="addtask" id="addtask" onclick="addTask()">Confirm Task</button>
         <button class="backtomenu" id="backtomenu" onclick="backToMenu()">Back To Menu</button>
       </div>

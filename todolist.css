@@ -50,3 +50,8 @@
     display: none;
     flex-direction: column;
   }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }

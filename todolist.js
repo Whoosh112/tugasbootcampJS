@@ -1,21 +1,27 @@
 const newtaskbox = document.getElementById("newtaskbox")
 const taskInput = document.getElementById("tasklistform");
 const newTaskForm = document.getElementById("newtaskform");
-
+const newTaskPriority = document.getElementById("newtaskpriority");
 
 
 function addTask(){
     /*Add the empty vessel for the task*/
-    const taskList = document.createElement("li");
+    const taskList = document.createElement("tr");
 
     /*Add the text for the task and trigger for line through*/
     const newTaskInput = document.getElementById("newtask").value;
-    const newTaskText = document.createElement("span")
+    const newTaskText = document.createElement("td")
     newTaskText.textContent = newTaskInput;
     taskList.onclick = lineThrough;
 
-    /*Prevent addition if newTaskInput is empty*/
-    if(newTaskInput === "") {
+    /*Add the text for the task priority and trigger for line through*/
+    const newTaskPriority = document.getElementById("newtaskpriority").value;
+    const newTaskPriorityText = document.createElement("td")
+    newTaskPriorityText.textContent = newTaskPriority;
+    taskList.onclick = lineThrough;
+
+    /*Prevent addition if inputs is empty*/
+    if(newTaskInput === "" || newTaskPriority === "") {
         alert("Tugas Kosong. Isi Sesuatu.")
         return
     }
@@ -30,12 +36,12 @@ function addTask(){
 
     /* combine everything into the still empty li*/
     taskList.appendChild(newTaskText);
+    taskList.appendChild(newTaskPriorityText);
     taskList.appendChild(removeButton);
 
     /*return the whole assembled thing to the html*/
     document.getElementById("todolist-list").appendChild(taskList);
     backToMenu();
-
 }
 
 function newTask(){
