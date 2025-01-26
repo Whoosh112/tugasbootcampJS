@@ -1,10 +1,11 @@
-const newtaskbox = document.getElementById("newtaskbox")
+const newtaskbox = document.getElementById("newtaskbox");
 const taskInput = document.getElementById("tasklistform");
 const newTaskForm = document.getElementById("newtaskform");
 const newTaskPriority = document.getElementById("newtaskpriority");
-const doneList = document.getElementById("donelist")
-const deleteAllTaskButton = document.getElementById("deletealltask")
-
+const doneList = document.getElementById("donelist");
+const deleteAllTaskButton = document.getElementById("deletealltask");
+const toDoListContent = document.getElementById("todolist-list");
+const doneListContent = document.getElementById("donelist-list");
 
 function addTask(){
     const taskList = document.createElement("tr");
@@ -26,9 +27,6 @@ function addTask(){
 }
 
 function deleteAllTask(){
-    const toDoListContent = document.getElementById("todolist-list");
-    const doneListContent = document.getElementById("donelist-list");
-
 while (toDoListContent.firstChild) {
     toDoListContent.removeChild(toDoListContent.firstChild);
 }
