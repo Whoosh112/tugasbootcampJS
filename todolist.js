@@ -3,6 +3,8 @@ const taskInput = document.getElementById("tasklistform");
 const newTaskForm = document.getElementById("newtaskform");
 const newTaskPriority = document.getElementById("newtaskpriority");
 const doneList = document.getElementById("donelist")
+const deleteAllTaskButton = document.getElementById("deletealltask")
+
 
 function addTask(){
     const taskList = document.createElement("tr");
@@ -14,13 +16,26 @@ function addTask(){
     addRemoveButton(taskList)
 
     if (!newTaskForm.value && !newTaskPriority.value) {
-        alert("Tugas Kosong. Isi Sesuatu.");
+        alert("Lengkapi data sebelum melakukan submit!");
         return
-}
+    }
   
     document.getElementById("todolist-list").appendChild(taskList);
     backToMenu();
     inputBarCleanup();
+}
+
+function deleteAllTask(){
+    const toDoListContent = document.getElementById("todolist-list");
+    const doneListContent = document.getElementById("donelist-list");
+
+while (toDoListContent.firstChild) {
+    toDoListContent.removeChild(toDoListContent.firstChild);
+}
+
+while (doneListContent.firstChild) {
+    doneListContent.removeChild(doneListContent.firstChild);
+}
 }
 
 function addDate(taskList){
@@ -55,6 +70,7 @@ function addRemoveButton(taskList){
     removeButtonCell.appendChild(removeButton);
     taskList.appendChild(removeButtonCell); 
 }
+
 function addConfirmButton(taskList){
     const centangButtonCell = document.createElement("td");
     const centangButton = document.createElement("input");
@@ -84,7 +100,6 @@ function showDoneList(){
     document.getElementById("todolist-list").style.display = "none";
 }
 
-
 function backToMenu(){
     taskInput.style.display = "flex"; 
     newTaskForm.style.display = "none";
@@ -113,5 +128,3 @@ function lineThrough(centangButton, taskList) {
     } else 
         document.getElementById("todolist-list").appendChild(taskList);
 }
-
-

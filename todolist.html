@@ -10,42 +10,13 @@
     <h1>Nama: <span class="namapengguna" id="namapengguna">Budi</span></h1>
     <h2>Jabatan: <span class="namajabatan" id="namajabatan">Manager</span></h1>
     <div class="todolist-body">
-      <div class="tasklistform" id="tasklistform">
-        <h1>What to do..?</h1>
-        <button class="newtaskbox" id="newtaskbox" onclick="newTask()">newtaskbox</button>
-        <button class="showdonelist" id="showdonelist" onclick="showDoneList()">Show Done List</button>
-      </div>
-      <table class="todolist-form" id="todolist-form">
-        <thead>
-          <tr>
-            <th>Selesai</th>
-            <th>Waktu</th>
-            <th>Tugas</th>
-            <th>Level Prioritas</th>
-            <th>Hapus</th>
-          </tr>
-        </thead>
-        <tbody class="todolist-list" id="todolist-list">
-        </tbody>
-      </table>
-      <div class="newtaskform" id="newtaskform">
-        <p>Badda bing badda boom</p>
-        <input type="text" id="newtask" name="newtask" placeholder="Make a note here">
-        <select id="newtaskpriority" name="newtaskpriority">
-          <option value="" disabled selected>Pilih Tingkat Prioritas</option>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-        <button class="addtask" id="addtask" onclick="addTask()">Confirm Task</button>
-        <button class="backtomenu" id="backtomenu" onclick="backToMenu()">Back To Menu</button>
-      </div>
-      <div class="donelist" id="donelist">
-        <div class="donelist-header" id="donelist-header">
-          <h1>What has been done</h1>
+      <button class="deletealltask" id="deletealltask" onclick="deleteAllTask()">Delete All Task</button>
+        <div class="tasklistform" id="tasklistform">
+          <h1>What to do..?</h1>
+          <button class="newtaskbox" id="newtaskbox" onclick="newTask()">newtaskbox</button>
+          <button class="showdonelist" id="showdonelist" onclick="showDoneList()">Show Done List</button>
         </div>
-        <button class="backtomenu" id="backtomenu" onclick="backToMenu()">Back To Menu</button>
-        <table class="donelist-form" id="donelist-form">
+        <table class="todolist-form" id="todolist-form">
           <thead>
             <tr>
               <th>Selesai</th>
@@ -55,9 +26,40 @@
               <th>Hapus</th>
             </tr>
           </thead>
-          <tbody class="donelist-list" id="donelist-list">
+          <tbody class="todolist-list" id="todolist-list">
           </tbody>
         </table>
+        <div class="newtaskform" id="newtaskform">
+          <p>Badda bing badda boom</p>
+          <input type="text" id="newtask" name="newtask" placeholder="Make a note here">
+          <select id="newtaskpriority" name="newtaskpriority">
+            <option value="" disabled selected>Pilih Tingkat Prioritas</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <button class="addtask" id="addtask" onclick="addTask()">Confirm Task</button>
+          <button class="backtomenu" id="backtomenu" onclick="backToMenu()">Back To Menu</button>
+        </div>
+        <div class="donelist" id="donelist">
+          <div class="donelist-header" id="donelist-header">
+            <h1>What has been done</h1>
+          </div>
+          <button class="backtomenu" id="backtomenu" onclick="backToMenu()">Back To Menu</button>
+          <table class="donelist-form" id="donelist-form">
+            <thead>
+              <tr>
+                <th>Selesai</th>
+                <th>Waktu</th>
+                <th>Tugas</th>
+                <th>Level Prioritas</th>
+                <th>Hapus</th>
+              </tr>
+            </thead>
+            <tbody class="donelist-list" id="donelist-list">
+            </tbody>
+          </table>
+      </div>
     </div>
     <script src="todolist.js"></script>
   </body>
