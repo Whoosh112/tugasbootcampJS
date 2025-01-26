@@ -23,6 +23,11 @@
     border-radius: 3px;
   }
 
+  .donelist{
+    display: none;
+    flex-direction: column;
+  }
+
   .tasklistform{
     display: flex;
     flex-direction: column;

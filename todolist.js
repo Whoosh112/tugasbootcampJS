@@ -2,6 +2,7 @@ const newtaskbox = document.getElementById("newtaskbox")
 const taskInput = document.getElementById("tasklistform");
 const newTaskForm = document.getElementById("newtaskform");
 const newTaskPriority = document.getElementById("newtaskpriority");
+const doneList = document.getElementById("donelist")
 
 function addTask(){
     const taskList = document.createElement("tr");
@@ -12,7 +13,7 @@ function addTask(){
     addTaskPriorityText(taskList)
     addRemoveButton(taskList)
 
-    if (newTaskForm.value === "" || newTaskPriority.value === "") {
+    if (!newTaskForm.value && !newTaskPriority.value) {
         alert("Tugas Kosong. Isi Sesuatu.");
         return
 }
@@ -68,7 +69,21 @@ function newTask(){
     newTaskForm.style.display = "flex";
     document.getElementById("todolist-form").style.display = "none";
     document.getElementById("todolist-list").style.display = "none";
+    doneList.style.display = "none"
+    document.getElementById("donelist-form").style.display = "none";
+    document.getElementById("donelist-list").style.display = "none"
 }
+
+function showDoneList(){
+    doneList.style.display = "flex"
+    document.getElementById("donelist-form").style.display = "table";
+    document.getElementById("donelist-list").style.display = "table-row-group";
+    taskInput.style.display = "none"; 
+    newTaskForm.style.display = "none";
+    document.getElementById("todolist-form").style.display = "none";
+    document.getElementById("todolist-list").style.display = "none";
+}
+
 
 function backToMenu(){
     taskInput.style.display = "flex"; 
@@ -76,6 +91,9 @@ function backToMenu(){
     document.getElementById("todolist-form").style.display = "table";
     document.getElementById("todolist-list").style.display = "table-row-group";
     inputBarCleanup();
+    doneList.style.display = "none"
+    document.getElementById("donelist-form").style.display = "none";
+    document.getElementById("donelist-list").style.display = "none"
 }
 
 function removeTask(removeButton){  
