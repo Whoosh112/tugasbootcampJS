@@ -59,7 +59,7 @@ function addConfirmButton(taskList){
     const centangButtonCell = document.createElement("td");
     const centangButton = document.createElement("input");
     centangButton.type="checkbox"
-    centangButton.onclick = () => lineThrough(centangButton)
+    centangButton.onclick = () => lineThrough(centangButton, taskList)
     centangButtonCell.appendChild(centangButton); 
     taskList.appendChild(centangButtonCell);
 }
@@ -105,9 +105,13 @@ function inputBarCleanup(){
     document.getElementById("newtaskpriority").value ="";
 }
 
-function lineThrough(centangButton) {
+function lineThrough(centangButton, taskList) {
     const spanElement = centangButton.closest("tr").querySelector("span");
-    if (spanElement) {
-        spanElement.classList.toggle("checked");
-    }
+    spanElement.classList.toggle("checked");
+    if (spanElement.classList.contains("checked")) {
+        document.getElementById("donelist-list").appendChild(taskList);
+    } else 
+        document.getElementById("todolist-list").appendChild(taskList);
 }
+
+
