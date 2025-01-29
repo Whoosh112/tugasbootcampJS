@@ -27,13 +27,15 @@ function addTask(){
 }
 
 function deleteAllTask(){
-while (toDoListContent.firstChild) {
-    toDoListContent.removeChild(toDoListContent.firstChild);
+    while (toDoListContent.firstChild) {
+     toDoListContent.removeChild(toDoListContent.firstChild);
+    }
 }
 
-while (doneListContent.firstChild) {
-    doneListContent.removeChild(doneListContent.firstChild);
-}
+function deleteAllDoneTask(){
+    while (doneListContent.firstChild) {
+        doneListContent.removeChild(doneListContent.firstChild);
+    }
 }
 
 function addDate(taskList){
@@ -86,6 +88,8 @@ function newTask(){
     doneList.style.display = "none"
     document.getElementById("donelist-form").style.display = "none";
     document.getElementById("donelist-list").style.display = "none"
+    document.getElementById("todolist-body").style.display = "none"
+
 }
 
 function showDoneList(){
@@ -96,6 +100,7 @@ function showDoneList(){
     newTaskForm.style.display = "none";
     document.getElementById("todolist-form").style.display = "none";
     document.getElementById("todolist-list").style.display = "none";
+    document.getElementById("todolist-body").style.display = "block"
 }
 
 function backToMenu(){
@@ -107,6 +112,8 @@ function backToMenu(){
     doneList.style.display = "none"
     document.getElementById("donelist-form").style.display = "none";
     document.getElementById("donelist-list").style.display = "none"
+    document.getElementById("todolist-body").style.display = "block"
+
 }
 
 function removeTask(removeButton){  
