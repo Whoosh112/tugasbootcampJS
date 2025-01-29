@@ -53,10 +53,14 @@
     border-radius: 3px;
   }
 
-  .newtask{
+  .newtaskform > .newtask{
+    width: 100%; 
+    max-width: 500px; /
+    height: 150px;
     resize: none;
-    width: 100px;
-    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
   }
 
   table {
