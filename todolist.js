@@ -39,9 +39,11 @@ function deleteAllDoneTask(){
 }
 
 function addDate(taskList){
-    const dateConverter = new Intl.DateTimeFormat('id-ID').format(new Date())
+    const dateConverter = new Date()
+    const dayString = dateConverter.toLocaleDateString('id-ID', { weekday: 'long' });
+    const dateString = dateConverter.toLocaleDateString('id-ID', { timeZone: 'UTC' });
     const taskDateText = document.createElement("td")
-    taskDateText.textContent = dateConverter
+    taskDateText.textContent = dayString +" "+ dateString
     taskList.appendChild(taskDateText)
 }
 

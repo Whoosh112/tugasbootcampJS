@@ -7,13 +7,20 @@
     <link rel="stylesheet" href="todolist.css">
   </head>
   <body>
-    <h1>Nama: <span class="namapengguna" id="namapengguna">Budi</span></h1>
-    <h2>Jabatan: <span class="namajabatan" id="namajabatan">Manager</span></h1>
     <div class="todolist-body" id="todolist-body">
+        <div class="identity" id="identity">
+          <div class="biodata" id="biodata">
+            <h1>Nama: <span class="namapengguna" id="namapengguna">Budi</span></h1>
+            <h2>Jabatan: <span class="namajabatan" id="namajabatan">Manager</span></h1>
+          </div>
+          <img src="avatar.png" width="70" height="70" alt="avatar" class="avatar">
+        </div>
         <div class="tasklistform" id="tasklistform">
           <h1>What to do..?</h1>
-          <button class="newtaskbox" id="newtaskbox" onclick="newTask()">Create New Task</button>
-          <button class="showdonelist" id="showdonelist" onclick="showDoneList()">Show Done List</button>
+          <div class="mainmenu">
+            <button class="newtaskbox" id="newtaskbox" onclick="newTask()">Create New Task</button>
+            <button class="showdonelist" id="showdonelist" onclick="showDoneList()">Show Done List</button>
+          </div>
           <button class="deletealltask" id="deletealltask" onclick="deleteAllTask()">Delete All Task</button>
         </div>
         <table class="todolist-form" id="todolist-form">
@@ -51,7 +58,7 @@
       </div>
     </div>
     <div class="newtaskform" id="newtaskform">
-      <p>Badda bing badda boom</p>
+      <p>Tuliskan Tugas Anda</p>
       <textarea id="newtask" class="newtask" name="newtask" placeholder="Tulis Tugas Disini"></textarea>
       <select id="newtaskpriority" name="newtaskpriority">
         <option value="" disabled selected>Pilih Tingkat Prioritas</option>
