@@ -48,11 +48,20 @@
     border-bottom: none;
   }
 
+
 button{
     margin: 3px;
   }
 
-
+.removetask{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  font-size: 30px;
+  color: red;
+}
 
 .checked {
     text-decoration: line-through;
@@ -71,6 +80,11 @@ button{
     max-height: 600px;
     border-radius: 3px;
     gap: 10px;
+    padding: 10px;
+  }
+
+  .newtaskform > p{
+    font-size: 20px;
   }
 
 .newtask{

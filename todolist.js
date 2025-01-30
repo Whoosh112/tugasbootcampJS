@@ -77,6 +77,7 @@ function addConfirmButton(taskList){
     const centangButtonCell = document.createElement("td");
     const centangButton = document.createElement("input");
     centangButton.type="checkbox"
+    centangButton.classList.add("centangbutton"); 
     centangButton.onclick = () => lineThrough(centangButton, taskList)
     centangButtonCell.appendChild(centangButton); 
     taskList.appendChild(centangButtonCell);
