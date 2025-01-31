@@ -27,15 +27,11 @@ function addTask(){
 }
 
 function deleteAllTask(){
-    while (toDoListContent.firstChild) {
-     toDoListContent.removeChild(toDoListContent.firstChild);
-    }
+     toDoListContent.innerHTML ="";
 }
 
 function deleteAllDoneTask(){
-    while (doneListContent.firstChild) {
-        doneListContent.removeChild(doneListContent.firstChild);
-    }
+    doneListContent.innerHTML ="";
 }
 
 function addDate(taskList){
